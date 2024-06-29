@@ -14,7 +14,7 @@ export default function Home() {
           />
         </div>
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-          <h1 className="px-4 text-6xl font-bold md:font-light md:text-9xl text-terracota font-chal text-center">
+          <h1 className="px-4 text-6xl md:text-9xl text-terracota font-chal text-center">
             Gundo Book Club
           </h1>
           <p className="px-4 text-2xl md:text-3xl text-terracota font-cinzel text-center mt-1">
