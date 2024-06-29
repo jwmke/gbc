@@ -27,8 +27,11 @@ export default function Home() {
       </div>
       <div className="bg-gradient-to-br from-marble to-clay w-full text-terracota border-b-8 border-double border-terracota">
         <div className="text-center my-40 mx-8">
-          <div className="font-chal text-5xl mb-4">
+          <div className="font-chal text-5xl">
             Currently Reading
+          </div>
+          <div className="font-cin text-md mb-8">
+            06/22 - 06/29
           </div>
           <div className="font-bold font-cinzel text-xl">
             Narcissus and Goldmund
