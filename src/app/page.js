@@ -27,7 +27,7 @@ export default function Home() {
       </div>
       <div className="bg-gradient-to-br from-marble to-clay w-full text-terracota border-b-8 border-double border-terracota">
         <div className="text-center my-40 mx-8">
-          <div className="font-chal text-5xl">
+          <div className="font-chal text-5xl mb-4">
             Currently Reading
           </div>
           <div className="font-bold font-cinzel text-xl">
