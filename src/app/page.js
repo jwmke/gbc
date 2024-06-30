@@ -1,9 +1,12 @@
+"use client"
 import Image from "next/image";
+import Countdown from 'react-countdown';
+import ReactDOM from 'react-dom';
 
 export default function Home() {
   return (
     <main className="flex w-full min-h-screen flex-col items-center justify-between overflow-x-hidden">
-      <div className="relative w-full">
+      <div className="relative w-full border-terracota border-b-8">
         <div className="w-full">
           <Image 
             src="/img/athens.jpg" 
@@ -23,6 +26,24 @@ export default function Home() {
           <p className="px-4 text-md md:text-3xl text-terracota font-cinzel text-center">
             Blue Butterfly Coffee
           </p>
+          <p className="px-4 text-md md:text-xl text-terracota font-cin text-center bottom-0">
+            Next Meeting - <Countdown date={new Date('2024-07-13T17:00:00')} renderer={
+              ({days, hours, minutes, seconds, completed}) => {
+                let daysString = "days";
+                if (days == 0) {
+                  daysString = "day";
+                }
+                if (completed) {
+                  return <span>Today</span>
+                } else {
+                  return <span>{days > 0 ? `${days+1} Days`: "Tomorrow"}</span>
+                }
+              }
+            
+            } >
+              <span/>
+            </Countdown>
+          </p>
         </div>
       </div>
       <div className="bg-gradient-to-br from-marble to-clay w-full text-terracota border-b-8 border-double border-terracota">
@@ -31,7 +52,7 @@ export default function Home() {
             Currently Reading
           </div>
           <div className="font-cin text-md mb-8">
-            06/22 - 06/29
+            06/22 - 07/13
           </div>
           <div className="font-bold font-cinzel text-xl">
             Narcissus and Goldmund
@@ -39,7 +60,7 @@ export default function Home() {
           <div className="font-cin text-sm">
             Hermann Hesse
           </div>
-          <div className="w-1/2 md:w-1/6 mx-auto mt-4 border-4 rounded-sm border-terracota">
+          <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
             <Image src="/img/ng.jpg" alt="Narcissus and Goldmund" width={600} height={1000} className="w-full" />
           </div>
         </div>
@@ -50,49 +71,71 @@ export default function Home() {
             The Library
           </div>
           <div className="font-cin text-md mb-8">
-            ( Past Reads )
+            ( Previous Selections )
           </div>
-          <div className="font-cinzel text-xl">
-            Die With Zero
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:mx-[15%]">
+            <div className="columns-1 mb-8">
+              <div className="font-cinzel text-xl">
+                Die With Zero
+              </div>
+              <div className="font-cin text-sm">
+                Bill Perkins
+              </div>
+              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
+                <Image src="/img/dw0.jpg" alt="Die With Zero" width={600} height={1000} className="w-full" />
+              </div>
+            </div>
+            <div className="columns-1 mb-8">
+              <div className="font-cinzel text-xl mx-auto max-w-80">
+                Selective Breeding and the Birth of Philosophy
+              </div>
+              <div className="font-cin text-sm">
+                Costin Alamariu
+              </div>
+              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
+                <Image src="/img/sb.jpg" alt="Selective Breeding and the Birth of Philosophy" width={600} height={1000} className="w-full" />
+              </div>
+            </div>
+            <div className="columns-1 mb-8">
+              <div className="font-cinzel text-xl">
+                Hamilton vs. Wall Street
+              </div>
+              <div className="font-cin text-sm">
+                Nancy Spannaus
+              </div>
+              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
+                <Image src="/img/hws.jpg" alt="Hamilton vs. Wall Street" width={600} height={1000} className="w-full" />
+              </div>
+            </div>
           </div>
-          <div className="font-cin text-sm">
-            Bill Perkins
+        </div>
+      </div>
+      <div className="bg-gradient-to-br from-clay to-clay w-full text-terracota border-b-8 border-double border-terracota">
+        <div className="text-center my-40 mx-8">
+          <div className="font-chal text-5xl">
+            The Forum
           </div>
-          <div className="w-1/2 md:w-1/6 mx-auto mt-4 border-4 rounded-sm border-terracota">
-            <Image src="/img/dw0.jpg" alt="Die With Zero" width={600} height={1000} className="w-full" />
-          </div>
-          <div className="font-cinzel text-xl mt-8">
-            Selective Breeding and the Birth of Philosophy
-          </div>
-          <div className="font-cin text-sm">
-            Costin Alamariu
-          </div>
-          <div className="w-1/2 md:w-1/6 mx-auto mt-4 border-4 rounded-sm border-terracota">
-            <Image src="/img/sb.jpg" alt="Selective Breeding and the Birth of Philosophy" width={600} height={1000} className="w-full" />
-          </div>
-          <div className="font-cinzel text-xl mt-8">
-            Hamilton vs. Wall Street
-          </div>
-          <div className="font-cin text-sm">
-            Nancy Spannaus
-          </div>
-          <div className="w-1/2 md:w-1/6 mx-auto mt-4 border-4 rounded-sm border-terracota">
-            <Image src="/img/hws.jpg" alt="Hamilton vs. Wall Street" width={600} height={1000} className="w-full" />
+          <div className="font-bold font-cinzel text-xl underline text-salmon hover:text-terracota">
+            <a href="https://twitter.com/search?q=%23gundobookclub" target="_blank" rel="noreferrer" className="bg-clay pb-10 md:pb-0 md:px-[35%] px-[calc(40%-5rem)] pt-4 z-20 relative">
+              #gundobookclub
+            </a>
+            <div className="relative md:-top-10">
+              <iframe src="https://widget.tagembed.com/154655?view" className="w-3/4 md:w-1/2 mx-auto h-[50rem] z-10 iframe1" frameBorder="0" allowtransparency="true"></iframe>
+            </div>
+            <div className="bg-clay px-[calc(40%-5rem)] pt-6 z-20 relative -top-[.75rem] md:-top-[3.5rem]"/>
           </div>
         </div>
       </div>
       <div className="bg-gradient-to-br from-marble to-clay w-full text-terracota border-b-8 border-double border-terracota">
-          <div className="text-center my-40 mx-8">
-            <div className="font-chal text-5xl">
-              The Forum
-            </div>
-            <div className="font-bold font-cinzel text-xl underline text-salmon">
-              <a href="https://twitter.com/search?q=%23gundobookclub" target="_blank" rel="noreferrer">
-                #gundobookclub
-              </a>
-            </div>
+        <div className="text-center my-40 mx-8">
+          <div className="font-chal text-5xl">
+            Contact
+          </div>
+          <div className="font-bold font-cinzel text-xl">
+            To join the club, message <span className="underline text-salmon inline hover:text-terracota"><a href="https://twitter.com/kaeladair" target="_blank" rel="noreferrer">@kaeladair</a></span> on X
           </div>
         </div>
+      </div>
     </main>
   );
 }
