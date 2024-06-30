@@ -116,7 +116,7 @@ export default function Home() {
             The Forum
           </div>
           <div className="font-bold font-cinzel text-xl underline text-salmon hover:text-terracota">
-            <a href="https://twitter.com/search?q=%23gundobookclub" target="_blank" rel="noreferrer" className="bg-clay pb-10 md:pb-0 md:px-[35%] px-[calc(40%-5rem)] pt-4 z-20 relative">
+            <a href="https://twitter.com/search?q=%23gundobookclub" target="_blank" rel="noreferrer" className="bg-clay pb-10 md:pb-0 md:px-[35%] px-[calc(40%-5rem)] md:pt-4 z-20 relative">
               #gundobookclub
             </a>
             <div className="relative md:-top-10">
