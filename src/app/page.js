@@ -1,11 +1,29 @@
 "use client"
 import Image from "next/image";
 import Countdown from 'react-countdown';
-import ReactDOM from 'react-dom';
+import Script from 'next/script';
 
 export default function Home() {
+
+  const Book = ({title, author, image}) => {
+    return (
+      <div className="columns-1 mb-8">
+        <div className="font-cinzel text-xl">
+          {title}
+        </div>
+        <div className="font-cin text-sm">
+          {author}
+        </div>
+        <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
+          <Image src={image} alt={title} width={600} height={1000} className="w-full" />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <main className="flex w-full min-h-screen flex-col items-center justify-between overflow-x-hidden">
+      <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" async />
       <div className="relative w-full border-terracota border-b-8">
         <div className="w-full">
           <Image 
@@ -74,39 +92,9 @@ export default function Home() {
             ( Previous Selections )
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:mx-[15%]">
-            <div className="columns-1 mb-8">
-              <div className="font-cinzel text-xl">
-                Die With Zero
-              </div>
-              <div className="font-cin text-sm">
-                Bill Perkins
-              </div>
-              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
-                <Image src="/img/dw0.jpg" alt="Die With Zero" width={600} height={1000} className="w-full" />
-              </div>
-            </div>
-            <div className="columns-1 mb-8">
-              <div className="font-cinzel text-xl mx-auto max-w-80">
-                Selective Breeding and the Birth of Philosophy
-              </div>
-              <div className="font-cin text-sm">
-                Costin Alamariu
-              </div>
-              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
-                <Image src="/img/sb.jpg" alt="Selective Breeding and the Birth of Philosophy" width={600} height={1000} className="w-full" />
-              </div>
-            </div>
-            <div className="columns-1 mb-8">
-              <div className="font-cinzel text-xl">
-                Hamilton vs. Wall Street
-              </div>
-              <div className="font-cin text-sm">
-                Nancy Spannaus
-              </div>
-              <div className="w-1/2 md:w-40 mx-auto mt-4 border-4 rounded-sm border-terracota">
-                <Image src="/img/hws.jpg" alt="Hamilton vs. Wall Street" width={600} height={1000} className="w-full" />
-              </div>
-            </div>
+            <Book title="Die With Zero" author="Bill Perkins" image="/img/dw0.jpg" />
+            <Book title="Selective Breeding and the Birth of Philosophy" author="Costin Alamariu" image="/img/sb.jpg" />
+            <Book title="Hamilton vs. Wall Street" author="Nancy Spannaus" image="/img/hws.jpg" />
           </div>
         </div>
       </div>
@@ -132,8 +120,18 @@ export default function Home() {
             Contact
           </div>
           <div className="font-bold font-cinzel text-xl">
-            To join the club, message <span className="underline text-salmon inline hover:text-terracota"><a href="https://twitter.com/kaeladair" target="_blank" rel="noreferrer">@kaeladair</a></span> on X
+            {/* To join, message <span className="underline text-salmon inline hover:text-terracota"><a href="https://twitter.com/kaeladair" target="_blank" rel="noreferrer">@kaeladair</a></span> on X, or RSVP below. */}
+            To join, message <span className="underline text-salmon inline hover:text-terracota">@kaeladair</span> on X
           </div>
+          {/* <button
+            class="luma-checkout--button"
+            type="button"
+            data-luma-action="checkout"
+            data-luma-event-id="TODO-eventID"
+            className="bg-terracota text-marble font-bold py-2 px-4 rounded mt-4"
+          >
+            Register for Event
+          </button> */}
         </div>
       </div>
     </main>
