@@ -5,6 +5,8 @@ import Script from 'next/script';
 
 export default function Home() {
 
+  const eventId = "todo";
+
   const Book = ({title, author, image}) => {
     return (
       <div className="columns-1 mb-8">
@@ -24,7 +26,7 @@ export default function Home() {
   return (
     <main className="flex w-full min-h-screen flex-col items-center justify-between overflow-x-hidden">
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" async />
-      <div className="relative w-full border-terracota border-b-8">
+      <div className="relative w-full border-terracota border-b-4">
         <div className="w-full">
           <Image 
             src="/img/athens.jpg" 
@@ -63,6 +65,17 @@ export default function Home() {
             </Countdown>
           </p>
         </div>
+        <div className="absolute bottom-[20%] w-full flex justify-center z-20">
+            <button
+              class="luma-checkout--button"
+              type="button"
+              data-luma-action="checkout"
+              data-luma-event-id={eventId}
+              className="bg-gradient-to-br from-amber-800 to-terracota text-marble font-bold py-2 px-4 rounded"
+            >
+              RSVP
+            </button>
+          </div>
       </div>
       <div className="bg-gradient-to-br from-marble to-clay w-full text-terracota border-b-8 border-double border-terracota">
         <div className="text-center my-40 mx-8">
@@ -120,18 +133,19 @@ export default function Home() {
             Contact
           </div>
           <div className="font-bold font-cinzel text-xl">
-            {/* To join, message <span className="underline text-salmon inline hover:text-terracota"><a href="https://twitter.com/kaeladair" target="_blank" rel="noreferrer">@kaeladair</a></span> on X, or RSVP below. */}
-            To join, message <span className="underline text-salmon inline hover:text-terracota">@kaeladair</span> on X
+            To join, RSVP below, or message <span className="underline text-salmon inline hover:text-terracota"><a href="https://twitter.com/kaeladair" target="_blank" rel="noreferrer">@kaeladair</a></span> on X
           </div>
-          {/* <button
-            class="luma-checkout--button"
-            type="button"
-            data-luma-action="checkout"
-            data-luma-event-id="TODO-eventID"
-            className="bg-terracota text-marble font-bold py-2 px-4 rounded mt-4"
-          >
-            Register for Event
-          </button> */}
+          <div className="mt-4">
+            <button
+              class="luma-checkout--button"
+              type="button"
+              data-luma-action="checkout"
+              data-luma-event-id={eventId}
+              className="bg-gradient-to-br from-amber-800 to-terracota text-marble font-bold py-2 px-4 rounded"
+            >
+              RSVP
+            </button>
+          </div>
         </div>
       </div>
     </main>
